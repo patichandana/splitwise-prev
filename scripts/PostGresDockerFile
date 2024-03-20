@@ -1,0 +1,5 @@
+FROM postgres:latest
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_USER=postgres_user
+ENV POSTGRES_DB=postgres_db
+# some more commands to expose port and up the db
