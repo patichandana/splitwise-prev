@@ -1,0 +1,18 @@
+{
+  "name": "splitwise-backend",
+  "version": "1.0.0",
+  "description": "backend code for splitwise. Node development env. npm package manager. Express package for handling rest requests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chandana",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "node-cache": "^5.1.2",
+    "nodemon": "^3.1.0",
+    "pg-promise": "^11.5.4"
+  }
+}
