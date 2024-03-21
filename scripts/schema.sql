@@ -1,6 +1,6 @@
 CREATE TABLE users (
   user_id bigserial,
-  email_id bigint UNIQUE NOT NULL,
+  email_id varchar(100) UNIQUE NOT NULL,
   password varchar(100) NOT NULL,
   name varchar(100) NOT NULL,
   created_at timestamptz NOT NULL,
