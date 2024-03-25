@@ -125,7 +125,7 @@ app.post('/signup', (req, res) => {
                 let otp = randomValueGenerator();
                 //send otp to mail id
                 const mailData = {
-                    from: 'vaultwarden@anandu.net',
+                    from: process.env.FROM_MAIL_ID,
                     to: payload?.EmailId,
                     subject: 'splitwise signup',
                     text: `Your OTP is ${otp}. Please Enter this number and validate yourself in the application`
