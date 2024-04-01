@@ -3,7 +3,7 @@ CREATE TABLE users (
   email_id varchar(100) UNIQUE NOT NULL,
   password varchar(100) NOT NULL,
   name varchar(100) NOT NULL,
-  created_at timestamptz NOT NULL,
+  created_at timestamptz default current_timestamp,
   PRIMARY KEY(user_id)
 );
 
