@@ -30,8 +30,11 @@ const transportor = nodeMailer.createTransport(
         auth: {
             user: 'apikey',
             pass: process.env.SENDGRID_API_KEY
-        }
+        },
         // secure: true
+        tls: {
+            ciphers: 'SSLv3'
+        }
     }
 );
 // console.log(express);
