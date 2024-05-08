@@ -1,4 +1,4 @@
-const {DB, CACHE} = require("../common")
+const { DB, CACHE } = require("../../common")
 
 const validateOTP = (req, res) => {
     // console.log(req.body)
@@ -22,4 +22,4 @@ const validateOTP = (req, res) => {
     // res.status(300).send('smtng')
 }
 
-module.exports = {validateOTP: validateOTP}
+module.exports = { validateOTP: validateOTP }
