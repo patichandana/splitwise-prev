@@ -26,4 +26,5 @@ const TRANSPORTOR = nodeMailer.createTransport(
     }
 );
 
+console.log(DB);
 module.exports = {DB: DB, CACHE: CACHE, TRANSPORTOR: TRANSPORTOR}
