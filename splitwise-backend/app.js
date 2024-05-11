@@ -4,10 +4,12 @@ const bodyParser = require("body-parser");
 require('dotenv').config();
 
 //code imports
-const { signup } = require("./src/api/components/auth/signup")
-const { signin } = require("./src/api/components/auth/signin")
+const { signup } = require("./src/api/components/auth/services/signup")
+const { signin } = require("./src/api/components/auth/services/signin")
 const { getGroupsOfAUser } = require("./src/api/components/groups/getGroupsOfAUser")
 const { getAllMembersOfAGroup } = require("./src/api/components/groups/getAllMembersOfAGroup")
+const { addGroup } = require("./src/api/components/groups/addGroup")
+const { removeGroup } = require("./src/api/components/groups/removeGroup")
 const { validateOTP } = require("./src/api/components/auth/services/validateOTP")
 const {addTransaction} = require("./src/api/components/transactions/addTransaction")
 const {editTransaction} = require("./src/api/components/transactions/editTransaction")
