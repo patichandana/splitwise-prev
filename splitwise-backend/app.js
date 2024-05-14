@@ -49,7 +49,7 @@ APP.post('/groups/', (req, res) => addGroup(req, res, user_id))
 APP.delete('/groups/', (req, res) => removeGroup(req, res, user_id))
 
 //get all the groups a user belongs to
-APP.get('/groups/', (req, res) => getGroupsOfAUser(req, res));
+APP.get('/groups/', (req, res) => getGroupsOfAUser(req, res, user_id));
 
 //get all the members of a certain group
 APP.get('/groupmembers/:group_id', (req, res) => getAllMembersOfAGroup(req, res));

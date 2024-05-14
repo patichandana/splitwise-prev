@@ -1,10 +1,9 @@
 const {DB} = require("../common")
 
-const getGroupsOfAUser = (req, res) => {
+const getGroupsOfAUser = (req, res, user_id) => {
     console.log(res);
     // res.send("Hello world");
     userGroups = []
-    user_id = req.params.user_id
     counter = 0
     console.log(user_id)
     DB.any(`SELECT group_id FROM groupmembers WHERE user_id=${user_id}`)
@@ -22,7 +21,13 @@ const getGroupsOfAUser = (req, res) => {
                         if (counter == data.length) {
                             console.log("entered")
                             console.log(counter, data.length)
-                            res.send(JSON.stringify(userGroups));
+                            // res.send(JSON.stringify(userGroups));
+                            res.send({
+                                "count": userGroups.length,
+                                "groups": [
+                                    userGroups
+                                ]
+                            })
                         }
                     });
             })
