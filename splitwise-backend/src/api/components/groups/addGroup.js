@@ -13,15 +13,18 @@ addGroup = (req, res, user_id) => {
     DB.any(`insert into groups(group_name, type_id, created_by) values('${groupName}',${groupType}, ${user_id}) returning *`).then((data) => {
         console.log(data);
         if (data.length > 0) {
-            res.send({
-                "status": "success",
-                "group": {
-                    "groupid": data[0].group_id,
-                    "groupname": data[0].group_name,
-                    "grouptype": data[0].group_type,
-                    "createdate": data[0].created_at
-                },
-                "message": "Group successfully added"
+            //what if this query fails? how do we make sure data integrity is present?
+            DB.any(`insert into groupmembers(group_id, user_id) values(${data[0].group_id}, ${user_id})`).then( () => {
+                res.send({
+                    "status": "success",
+                    "group": {
+                        "groupid": data[0].group_id,
+                        "groupname": data[0].group_name,
+                        "grouptype": data[0].group_type,
+                        "createdate": data[0].created_at
+                    },
+                    "message": "Group successfully added"
+                })
             })
         } else {
             res.send({
