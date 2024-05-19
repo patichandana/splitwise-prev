@@ -10,11 +10,11 @@ const { signin } = require("./src/api/components/auth/services/signin")
 const { getGroupsOfAUser } = require("./src/api/components/groups/getGroupsOfAUser")
 const { getAllMembersOfAGroup } = require("./src/api/components/groups/getAllMembersOfAGroup")
 const { addGroup } = require("./src/api/components/groups/addGroup")
-const { removeGroup } = require("./src/api/components/groups/removeGroup")
+const { deleteGroup } = require("./src/api/components/groups/deleteGroup")
 const { validateOTP } = require("./src/api/components/auth/services/validateOTP")
-const {addTransaction} = require("./src/api/components/transactions/addTransaction")
-const {editTransaction} = require("./src/api/components/transactions/editTransaction")
-const {removeTransaction} = require("./src/api/components/transactions/removeTransaction")
+const {addExpense} = require("./src/api/components/expenses/addExpense")
+const {updateExpense} = require("./src/api/components/expenses/updateExpense")
+const {deleteExpense} = require("./src/api/components/expenses/deleteExpense")
 
 
 //constants declaration
@@ -45,8 +45,8 @@ APP.use((req, res, next) => {
 //add a group
 APP.post('/groups/', (req, res) => addGroup(req, res, user_id))
 
-//remove a group
-APP.delete('/groups/', (req, res) => removeGroup(req, res, user_id))
+//delete a group
+APP.delete('/groups/', (req, res) => deleteGroup(req, res, user_id))
 
 //get all the groups a user belongs to
 APP.get('/groups/', (req, res) => getGroupsOfAUser(req, res, user_id));
@@ -57,6 +57,8 @@ APP.get('/groupmembers/:group_id', (req, res) => getAllMembersOfAGroup(req, res)
 //validate the otp
 APP.post('/validateotp', (req, res) => validateOTP(req, res));
 
+//add Expense
+APP.post('/expense', (req, res) => addExpense(req, res, user_id));
 
 //listening to the incoming requests
 APP.listen(PORT, () => {

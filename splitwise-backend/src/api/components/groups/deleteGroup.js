@@ -1,5 +1,5 @@
 const { DB, CACHE, TRANSPORTOR } = require("../common")
-const { removeAllUsersFromGroup } = require("../users/removeAllUsersFromGroup");
+const { removeAllUsersFromGroup } = require("../users/deleteAllUsersFromGroup");
 
 const removeGroup = async (req, res, user_id) => {
     //check if group is undefined and a number
